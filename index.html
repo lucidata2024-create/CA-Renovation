@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CA Renovation — Rénovation Intérieure Premium</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --blue: #1e3a8a;
+      --orange: #f97316;
+      --gray: #64748b;
+      --light: #f8fafc;
+      --dark: #0f172a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header */
+    header {
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav li {
+      font-weight: 500;
+      color: var(--gray);
+      transition: 0.3s;
+    }
+
+    .nav li:hover {
+      color: var(--orange);
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(rgba(15,23,42,0.7), rgba(15,23,42,0.7)),
+        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover no-repeat;
+      color: white;
+      padding: 120px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #e5e7eb;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: white;
+      padding: 14px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: #ea580c;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .service-card i {
+      font-size: 2.2rem;
+      color: var(--orange);
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    /* About */
+    .about {
+      background: white;
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-card span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(30,58,138,0.85);
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .price-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .price-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .price {
+      font-size: 2.2rem;
+      color: var(--orange);
+      margin: 15px 0;
+      font-weight: 700;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .testimonial {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .stars {
+      color: #facc15;
+      margin-bottom: 10px;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      font-size: 0.95rem;
+    }
+
+    form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    form button {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+    }
+
+    .contact-info p {
+      margin-bottom: 10px;
+      color: var(--gray);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #cbd5f5;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #cbd5f5;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      color: var(--orange);
+    }
+
+    @media(max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">CA Renovation</div>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#gallery">Galerie</a></li>
+      <li><a href="#pricing">Tarifs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>CA Renovation</h1>
+  <p>Votre partenaire de confiance pour la rénovation intérieure</p>
+  <a href="#contact" class="btn-primary">Demander un devis gratuit</a>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>Nos Services</h2>
+      <p>Des solutions complètes pour vos projets de rénovation</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card"><i class="fa-solid fa-building"></i><h3>Rénovation complète d’appartements</h3></div>
+      <div class="service-card"><i class="fa-solid fa-house"></i><h3>Rénovation de maisons</h3></div>
+      <div class="service-card"><i class="fa-solid fa-paint-roller"></i><h3>Peinture et finitions</h3></div>
+      <div class="service-card"><i class="fa-solid fa-bolt"></i><h3>Plomberie et électricité</h3></div>
+      <div class="service-card"><i class="fa-solid fa-border-all"></i><h3>Pose de carrelage et parquet</h3></div>
+      <div class="service-card"><i class="fa-solid fa-layer-group"></i><h3>Cloisons, placo et faux plafonds</h3></div>
+      <div class="service-card"><i class="fa-solid fa-ruler-combined"></i><h3>Design intérieur et optimisation d’espace</h3></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>À propos de CA Renovation</h2>
+    </div>
+
+    <div class="about">
+      <p>
+        CA Renovation est une entreprise spécialisée dans la rénovation intérieure haut de gamme.
+        Forte de plusieurs années d’expérience, notre équipe qualifiée vous accompagne de la conception
+        à la réalisation complète de vos projets.
+      </p><br>
+      <p>
+        Nous utilisons des matériaux de qualité, respectons strictement les délais et mettons un point
+        d’honneur à garantir la satisfaction totale de nos clients grâce à un suivi rigoureux et une
+        communication transparente.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="section-title">
+      <h2>Galerie de Projets</h2>
+      <p>Quelques exemples de nos réalisations</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511" alt="">
+        <span>Projet Appartement</span>
+      </div>
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a" alt="">
+        <span>Salle de bain</span>
+      </div>
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f" alt="">
+        <span>Cuisine</span>
+      </div>
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1560448075-bb485b067938" alt="">
+        <span>Salon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <div class="section-title">
+      <h2>Nos Tarifs</h2>
+      <p>Des packs adaptés à tous les budgets</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Pack Basic</h3>
+        <div class="price">1.500 €</div>
+        <p>Petits travaux, peinture, finitions de base.</p>
+      </div>
+      <div class="price-card">
+        <h3>Pack Standard</h3>
+        <div class="price">3.500 €</div>
+        <p>Rénovation partielle, salle de bain, cuisine, électricité.</p>
+      </div>
+      <div class="price-card">
+        <h3>Pack Premium</h3>
+        <div class="price">7.000 €</div>
+        <p>Rénovation complète clé en main, design et optimisation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="container">
+    <div class="section-title">
+      <h2>Avis Clients</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <strong>Jean Dupont</strong>
+        <p>"Travail impeccable, équipe très professionnelle."</p>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <strong>Marie Lefèvre</strong>
+        <p>"Respect des délais et excellente communication."</p>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <strong>Paul Martin</strong>
+        <p>"Résultat au-dessus de nos attentes."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>Contactez-nous</h2>
+      <p>Demandez votre devis gratuit</p>
+    </div>
+
+    <div class="contact-grid">
+      <form>
+        <input type="text" placeholder="Nom" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Téléphone">
+        <textarea placeholder="Message"></textarea>
+        <button class="btn-primary">Envoyer la demande</button>
+      </form>
+
+      <div class="contact-info">
+        <p><i class="fa-solid fa-phone"></i> +33 6 12 34 56 78</p>
+        <p><i class="fa-solid fa-envelope"></i> contact@ca-renovation.fr</p>
+        <p><i class="fa-solid fa-location-dot"></i> Paris, France</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>
+    <a href="#">Mentions légales</a> |
+    <a href="#">Politique de confidentialité</a>
+  </p>
+  <p>© CA Renovation — Tous droits réservés</p>
+</footer>
+
+<script>
+  // Animation simple au scroll (optionnel)
+  const cards = document.querySelectorAll('.service-card, .price-card, .testimonial');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => {
+    card.style.opacity = 0;
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = '0.6s';
+    observer.observe(card);
+  });
+</script>
+
+</body>
+</html>
